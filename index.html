@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мой Тестовый Репозиторий - GitHub Style</title>
+    <style>
+        /* Общие стили и темный фон (как на GitHub) */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #0d1117; /* Темный фон */
+            color: #c9d1d9; /* Светлый текст */
+        }
+
+        /* Верхняя панель навигации (имитация шапки) */
+        .header {
+            background-color: #161b22;
+            padding: 10px 20px;
+            border-bottom: 1px solid #30363d;
+            display: flex;
+            align-items: center;
+        }
+        .header h1 {
+            color: #58a6ff; /* Синий цвет для имитации логотипа */
+            font-size: 20px;
+            margin: 0;
+            margin-right: 20px;
+        }
+
+        /* Основной контейнер содержимого */
+        .container {
+            max-width: 1280px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        /* Имитация навигации по вкладкам (Code, Issues, Pull Requests) */
+        .tabs {
+            border-bottom: 1px solid #30363d;
+            margin-bottom: 20px;
+            display: flex;
+        }
+        .tab-item {
+            padding: 10px 15px;
+            font-weight: 600;
+            cursor: pointer;
+            color: #8b949e;
+            border-bottom: 2px solid transparent;
+            margin-right: 15px;
+        }
+        /* Активная вкладка */
+        .tab-item.active {
+            color: #c9d1d9;
+            border-bottom-color: #f78166; /* Оранжевый акцент */
+        }
+
+        /* Блок с кодом (имитация README или файла) */
+        .code-block {
+            background-color: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            padding: 20px;
+            font-family: 'Consolas', 'monospacem', monospace;
+            white-space: pre-wrap;
+            overflow-x: auto;
+            line-height: 1.5;
+        }
+        .code-block h2 {
+            margin-top: 0;
+            color: #58a6ff;
+            font-size: 1.2em;
+        }
+        .code-line {
+            display: block;
+            color: #79c0ff; /* Цвет синтаксиса */
+        }
+        .comment {
+            color: #8b949e; /* Цвет комментариев */
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>&lt; &gt; Мой Тест</h1>
+        <span>/ Тестовый Репозиторий</span>
+    </div>
+
+    <div class="container">
+        <div class="tabs">
+            <div class="tab-item active">Код</div>
+            <div class="tab-item">Вопросы (3)</div>
+            <div class="tab-item">Pull Requests (1)</div>
+        </div>
+
+        <div class="code-block">
+            <h2>README.md</h2>
+            <p class="code-line comment">// Это имитация файла README</p>
+            <p class="code-line"># Проект Alpha - Тест</p>
+            <p class="code-line">Сайт, созданный для проверки темной темы.</p>
+            <p class="code-line comment">/* Простая структура HTML и CSS */</p>
+            <p class="code-line">function testSuccess() {</p>
+            <p class="code-line" style="padding-left: 20px;">console.log("Тест прошел успешно!");</p>
+            <p class="code-line">}</p>
+        </div>
+
+        <p style="margin-top: 30px; text-align: center; color: #8b949e;">
+            <small>Имитация футера и дополнительной информации.</small>
+        </p>
+
+    </div>
+</body>
+</html>
