@@ -5,205 +5,235 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Soly'anka ReDo | Ultimate Minecraft Experience</title>
     <style>
-        /* Глобальные Стили и Шрифт */
+        /* Глобальные Стили */
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #0c0d10; /* Очень темный фон */
-            color: #dcdcdc; /* Светлый текст */
+            background-color: #0c0d10;
+            color: #e5e5e5;
             line-height: 1.6;
+            overflow-x: hidden; /* Предотвращаем горизонтальный скролл */
         }
 
-        /* Герой-Секция (Заглавный Экран) */
+        /* Герой-Секция и Фон */
         .hero-section {
-            /* Стилизация под эпическое игровое изображение */
-            background: url('placeholder_epic_minecraft_background.jpg') no-repeat center center/cover; 
-            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://via.placeholder.com/1920x800/222222/FFFFFF?text=PLACEHOLDER%20%D0%AD%D0%9F%D0%98%D0%A7%D0%9D%D0%AB%D0%99%20%D0%A4%D0%9E%D0%9D'); /* Заглушка, замените на свое фото */
-            height: 85vh;
+            height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            border-bottom: 5px solid #a87932; /* Золотистый акцент */
+            position: relative;
+            overflow: hidden;
+            padding: 20px;
+        }
+
+        /* Фоновое Изображение с Блюром */
+        .background-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://fons.grizly.club/uploads/posts/2025-06/04/17490609916951.jpg') no-repeat center center;
+            background-size: cover;
+            filter: blur(5px); /* Умеренный блюр */
+            transform: scale(1.05); /* Чтобы избежать белых краев после блюра */
+            z-index: 1;
+        }
+
+        /* Контент на переднем плане */
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 30px;
+            /* Эффект Glassmorphism */
+            background: rgba(0, 0, 0, 0.4); 
+            backdrop-filter: blur(8px);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .hero-section h1 {
-            font-size: 4.5em;
-            margin-bottom: 10px;
-            color: #ffcc00; /* Яркий золотой цвет */
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
-            letter-spacing: 2px;
+            font-size: 5em;
+            margin: 0;
+            color: #FFD700; /* Золотой цвет */
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+            letter-spacing: 3px;
             text-transform: uppercase;
         }
 
-        .hero-section p {
-            font-size: 1.5em;
-            color: #f0f0f0;
-            margin-bottom: 40px;
-            max-width: 800px;
+        .hero-section h2 {
+            font-size: 1.8em;
+            color: #c9d1d9;
+            margin-top: 10px;
+            margin-bottom: 30px;
         }
 
-        /* Кнопки Действия */
+        .hero-content p {
+            font-size: 1.2em;
+            max-width: 600px;
+            color: #d1d1d1;
+        }
+
+        /* Кнопки */
         .cta-buttons a {
             display: inline-block;
-            margin: 0 15px;
-            padding: 15px 35px;
+            margin: 20px 15px 0;
+            padding: 14px 40px;
             text-decoration: none;
-            font-weight: bold;
-            border-radius: 8px;
+            font-weight: 700;
+            border-radius: 50px; /* Скругленные кнопки */
             transition: all 0.3s ease;
             text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
         }
 
-        /* Основная Кнопка (Скачать) */
         .cta-primary {
-            background-color: #a87932; /* Золотой/Бронзовый */
-            color: #ffffff;
-            border: 2px solid #a87932;
+            background-color: #FFD700; /* Золото */
+            color: #1a1a1a;
+            border: none;
         }
         .cta-primary:hover {
-            background-color: #c49940;
-            box-shadow: 0 0 15px rgba(255, 204, 0, 0.5);
-            transform: translateY(-2px);
+            background-color: #fff4af;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+            transform: scale(1.05);
         }
 
-        /* Вторичная Кнопка (Discord) */
         .cta-secondary {
             background-color: transparent;
-            color: #a87932;
-            border: 2px solid #a87932;
+            color: #FFD700;
+            border: 2px solid #FFD700;
         }
         .cta-secondary:hover {
-            background-color: #1a1e26;
-            color: #ffcc00;
-            transform: translateY(-2px);
+            background-color: rgba(255, 215, 0, 0.1);
+            transform: scale(1.05);
         }
-
-        /* Секции Контента */
-        .content-section {
-            padding: 60px 20px;
+        
+        /* Секция Достоинств */
+        .dignity-section {
+            padding: 80px 20px;
             text-align: center;
         }
 
-        .content-section h2 {
-            font-size: 2.5em;
-            color: #ffcc00;
-            margin-bottom: 40px;
-            position: relative;
+        .dignity-section h2 {
+            font-size: 3em;
+            color: #FFD700;
+            margin-bottom: 50px;
+            text-transform: uppercase;
         }
 
-        .content-section h2::after {
-            content: '';
-            display: block;
-            width: 80px;
-            height: 3px;
-            background: #a87932;
-            margin: 10px auto 0;
-        }
-
-        .feature-grid {
+        .dignity-grid {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 30px;
-            max-width: 1000px;
+            gap: 40px;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
-        .feature-item {
-            background-color: #1a1e26;
-            padding: 30px;
-            border-radius: 10px;
+        .dignity-item {
             width: 300px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-            text-align: left;
-            border-top: 3px solid #ffcc00;
+            padding: 25px;
+            border-radius: 10px;
+            /* Эффект "Стекла" для карточек */
+            background: rgba(40, 40, 40, 0.6); 
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
             transition: transform 0.3s ease;
         }
-
-        .feature-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(255, 204, 0, 0.2);
+        
+        .dignity-item:hover {
+            transform: translateY(-8px);
+            border-color: #FFD700;
         }
 
-        .feature-item h3 {
-            color: #ffcc00;
-            font-size: 1.4em;
+        .dignity-item .icon {
+            font-size: 3em;
+            color: #FFD700;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .dignity-item h3 {
+            font-size: 1.5em;
+            color: #FFD700;
             margin-top: 0;
+            text-transform: uppercase;
+        }
+        
+        .dignity-item p {
+            color: #c9d1d9;
         }
 
         /* Футер */
         .footer {
             background-color: #1a1e26;
-            padding: 30px 20px;
+            padding: 20px;
             text-align: center;
             font-size: 0.9em;
             color: #8b949e;
-            border-top: 1px solid #30363d;
+            border-top: 3px solid #FFD700;
         }
-        
-        /* Медиа-запросы для адаптивности */
-        @media (max-width: 768px) {
-            .hero-section h1 {
-                font-size: 3em;
-            }
-            .hero-section p {
-                font-size: 1.2em;
-            }
-            .feature-grid {
-                flex-direction: column;
-                align-items: center;
-            }
-            .feature-item {
-                width: 90%;
-            }
-        }
+
     </style>
 </head>
 <body>
 
     <section class="hero-section">
-        <h1>THE SOLY'ANKA REDO</h1>
-        <p>
-            Ultimate mods | Версия 1.7.10
-        </p>
-        <p>
-            Сборка, в которой можно **ВСЁ!** Здесь нет жёстких рамок — ты сам решаешь, как играть: строй гигантские заводы, создай уютное королевство или устрой апокалипсис. Твоё приключение — твои правила!
-        </p>
-        <div class="cta-buttons">
-            <a href="ВАША_ССЫЛКА_НА_СКАЧИВАНИЕ" class="cta-primary">
-                СКАЧАТЬ СБОРКУ
-            </a>
-            <a href="ВАША_ССЫЛКА_НА_DISCORD" class="cta-secondary">
-                ОБСУДИТЬ В DISCORD
-            </a>
+        <div class="background-image"></div>
+        <div class="hero-content">
+            <h1>THE SOLY'ANKA RE<span style="color:#c9d1d9;">DO</span></h1>
+            <h2>Ultimate Mods | Версия 1.7.10 | DeathLegend15</h2>
+            <p>
+                Ваше приключение без границ. **The Soly'anka ReDo** — это сборка, в которой можно **ВСЁ!** Здесь нет жестких рамок. Ты сам решаешь: создай гигантскую индустрию, уютное королевство или устрой апокалипсис.
+            </p>
+            <div class="cta-buttons">
+                <a href="ВАША_ССЫЛКА_НА_СКАЧИВАНИЕ" class="cta-primary">
+                    🚀 НАЧАТЬ ПРИКЛЮЧЕНИЕ
+                </a>
+                <a href="ВАША_ССЫЛКА_НА_DISCORD" class="cta-secondary">
+                    💬 ЧАТ В DISCORD
+                </a>
+            </div>
         </div>
     </section>
 
-    <section class="content-section" id="features">
-        <h2>КЛЮЧЕВЫЕ ОСОБЕННОСТИ</h2>
-        <div class="feature-grid">
+    <section class="dignity-section">
+        <h2>НАШИ ГЛАВНЫЕ ДОСТОИНСТВА</h2>
+        <div class="dignity-grid">
             
-            <div class="feature-item">
-                <h3>🛠️ Абсолютная Свобода</h3>
+            <div class="dignity-item">
+                <span class="icon">✨</span>
+                <h3>Свобода Выбора</h3>
                 <p>
-                    Никаких обязательных квестов и жестких ограничений. Развивайся в своём темпе, сосредоточься на инженерии, магии или исследовании.
+                    Никаких принудительных квестов и линейного прохождения. Играйте так, как нравится вам. Стройте, исследуйте, творите хаос.
                 </p>
             </div>
             
-            <div class="feature-item">
-                <h3>⚡ Максимальная Оптимизация</h3>
+            <div class="dignity-item">
+                <span class="icon">⚙️</span>
+                <h3>Производительность</h3>
                 <p>
-                    Идеальный баланс между возможностями и производительностью. Мы позаботились, чтобы вы могли играть комфортно даже на средних ПК (от 8 ГБ ОЗУ).
+                    Максимальная оптимизация для 1.7.10. Мы достигли идеального баланса, чтобы даже с 8 ГБ ОЗУ вы получили стабильный FPS.
                 </p>
             </div>
             
-            <div class="feature-item">
-                <h3>🏰 Живой Мир</h3>
+            <div class="dignity-item">
+                <span class="icon">👑</span>
+                <h3>Ultimate Mods</h3>
                 <p>
-                    Сборка включает **Custom NPC+** и множество декоративных модов для оживления мира. Стройте свои города и наполняйте их жизнью!
+                    Сотни тщательно отобранных модов, включая Custom NPC+ и декоративные паки, создающие глубокий, живой и насыщенный мир.
                 </p>
             </div>
             
@@ -212,7 +242,7 @@
 
     <footer class="footer">
         <p>
-            &copy; 2024 The Soly'anka ReDo | Разработано DeathLegend15. Все права защищены.
+            DeathLegend15 | Репозиторий проекта: <a href="https://github.com/DeathLegend15/DeathRepo" style="color: #FFD700; text-decoration: none;">GitHub</a>
         </p>
     </footer>
 
