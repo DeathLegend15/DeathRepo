@@ -2,7 +2,7 @@
 
 ![Minecraft Version](https://img.shields.io/badge/Minecraft-1.7.10-blue.svg)
 ![Ultimate Mods](https://img.shields.io/badge/Категория-Ultimate%20Mods-red.svg)
-![Status](https://img.shields.io/badge/Статус-BETA%20v1562.11b-orange.svg)
+![Status](https://img.shields.io/badge/Статус-BETA%20v1562.13b-orange.svg)
 ![License (Placeholder)](https://img.shields.io/badge/Лицензия-Custom-lightgrey.svg)
 
 ---
