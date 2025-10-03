@@ -3,112 +3,218 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Мой Тестовый Репозиторий - GitHub Style</title>
+    <title>The Soly'anka ReDo | Ultimate Minecraft Experience</title>
     <style>
-        /* Общие стили и темный фон (как на GitHub) */
+        /* Глобальные Стили и Шрифт */
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #0d1117; /* Темный фон */
-            color: #c9d1d9; /* Светлый текст */
+            background-color: #0c0d10; /* Очень темный фон */
+            color: #dcdcdc; /* Светлый текст */
+            line-height: 1.6;
         }
 
-        /* Верхняя панель навигации (имитация шапки) */
-        .header {
-            background-color: #161b22;
-            padding: 10px 20px;
-            border-bottom: 1px solid #30363d;
+        /* Герой-Секция (Заглавный Экран) */
+        .hero-section {
+            /* Стилизация под эпическое игровое изображение */
+            background: url('placeholder_epic_minecraft_background.jpg') no-repeat center center/cover; 
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://via.placeholder.com/1920x800/222222/FFFFFF?text=PLACEHOLDER%20%D0%AD%D0%9F%D0%98%D0%A7%D0%9D%D0%AB%D0%99%20%D0%A4%D0%9E%D0%9D'); /* Заглушка, замените на свое фото */
+            height: 85vh;
             display: flex;
+            flex-direction: column;
+            justify-content: center;
             align-items: center;
-        }
-        .header h1 {
-            color: #58a6ff; /* Синий цвет для имитации логотипа */
-            font-size: 20px;
-            margin: 0;
-            margin-right: 20px;
+            text-align: center;
+            border-bottom: 5px solid #a87932; /* Золотистый акцент */
         }
 
-        /* Основной контейнер содержимого */
-        .container {
-            max-width: 1280px;
-            margin: 20px auto;
-            padding: 0 20px;
+        .hero-section h1 {
+            font-size: 4.5em;
+            margin-bottom: 10px;
+            color: #ffcc00; /* Яркий золотой цвет */
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
-        /* Имитация навигации по вкладкам (Code, Issues, Pull Requests) */
-        .tabs {
-            border-bottom: 1px solid #30363d;
-            margin-bottom: 20px;
-            display: flex;
-        }
-        .tab-item {
-            padding: 10px 15px;
-            font-weight: 600;
-            cursor: pointer;
-            color: #8b949e;
-            border-bottom: 2px solid transparent;
-            margin-right: 15px;
-        }
-        /* Активная вкладка */
-        .tab-item.active {
-            color: #c9d1d9;
-            border-bottom-color: #f78166; /* Оранжевый акцент */
+        .hero-section p {
+            font-size: 1.5em;
+            color: #f0f0f0;
+            margin-bottom: 40px;
+            max-width: 800px;
         }
 
-        /* Блок с кодом (имитация README или файла) */
-        .code-block {
-            background-color: #161b22;
-            border: 1px solid #30363d;
-            border-radius: 6px;
-            padding: 20px;
-            font-family: 'Consolas', 'monospacem', monospace;
-            white-space: pre-wrap;
-            overflow-x: auto;
-            line-height: 1.5;
+        /* Кнопки Действия */
+        .cta-buttons a {
+            display: inline-block;
+            margin: 0 15px;
+            padding: 15px 35px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
         }
-        .code-block h2 {
-            margin-top: 0;
-            color: #58a6ff;
-            font-size: 1.2em;
+
+        /* Основная Кнопка (Скачать) */
+        .cta-primary {
+            background-color: #a87932; /* Золотой/Бронзовый */
+            color: #ffffff;
+            border: 2px solid #a87932;
         }
-        .code-line {
+        .cta-primary:hover {
+            background-color: #c49940;
+            box-shadow: 0 0 15px rgba(255, 204, 0, 0.5);
+            transform: translateY(-2px);
+        }
+
+        /* Вторичная Кнопка (Discord) */
+        .cta-secondary {
+            background-color: transparent;
+            color: #a87932;
+            border: 2px solid #a87932;
+        }
+        .cta-secondary:hover {
+            background-color: #1a1e26;
+            color: #ffcc00;
+            transform: translateY(-2px);
+        }
+
+        /* Секции Контента */
+        .content-section {
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .content-section h2 {
+            font-size: 2.5em;
+            color: #ffcc00;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .content-section h2::after {
+            content: '';
             display: block;
-            color: #79c0ff; /* Цвет синтаксиса */
+            width: 80px;
+            height: 3px;
+            background: #a87932;
+            margin: 10px auto 0;
         }
-        .comment {
-            color: #8b949e; /* Цвет комментариев */
+
+        .feature-grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .feature-item {
+            background-color: #1a1e26;
+            padding: 30px;
+            border-radius: 10px;
+            width: 300px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            text-align: left;
+            border-top: 3px solid #ffcc00;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255, 204, 0, 0.2);
+        }
+
+        .feature-item h3 {
+            color: #ffcc00;
+            font-size: 1.4em;
+            margin-top: 0;
+        }
+
+        /* Футер */
+        .footer {
+            background-color: #1a1e26;
+            padding: 30px 20px;
+            text-align: center;
+            font-size: 0.9em;
+            color: #8b949e;
+            border-top: 1px solid #30363d;
+        }
+        
+        /* Медиа-запросы для адаптивности */
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 3em;
+            }
+            .hero-section p {
+                font-size: 1.2em;
+            }
+            .feature-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+            .feature-item {
+                width: 90%;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1>&lt; &gt; Мой Тест</h1>
-        <span>/ Тестовый Репозиторий</span>
-    </div>
 
-    <div class="container">
-        <div class="tabs">
-            <div class="tab-item active">Код</div>
-            <div class="tab-item">Вопросы (3)</div>
-            <div class="tab-item">Pull Requests (1)</div>
-        </div>
-
-        <div class="code-block">
-            <h2>README.md</h2>
-            <p class="code-line comment">// Это имитация файла README</p>
-            <p class="code-line"># Проект Alpha - Тест</p>
-            <p class="code-line">Сайт, созданный для проверки темной темы.</p>
-            <p class="code-line comment">/* Простая структура HTML и CSS */</p>
-            <p class="code-line">function testSuccess() {</p>
-            <p class="code-line" style="padding-left: 20px;">console.log("Тест прошел успешно!");</p>
-            <p class="code-line">}</p>
-        </div>
-
-        <p style="margin-top: 30px; text-align: center; color: #8b949e;">
-            <small>Имитация футера и дополнительной информации.</small>
+    <section class="hero-section">
+        <h1>THE SOLY'ANKA REDO</h1>
+        <p>
+            Ultimate mods | Версия 1.7.10
         </p>
+        <p>
+            Сборка, в которой можно **ВСЁ!** Здесь нет жёстких рамок — ты сам решаешь, как играть: строй гигантские заводы, создай уютное королевство или устрой апокалипсис. Твоё приключение — твои правила!
+        </p>
+        <div class="cta-buttons">
+            <a href="ВАША_ССЫЛКА_НА_СКАЧИВАНИЕ" class="cta-primary">
+                СКАЧАТЬ СБОРКУ
+            </a>
+            <a href="ВАША_ССЫЛКА_НА_DISCORD" class="cta-secondary">
+                ОБСУДИТЬ В DISCORD
+            </a>
+        </div>
+    </section>
 
-    </div>
+    <section class="content-section" id="features">
+        <h2>КЛЮЧЕВЫЕ ОСОБЕННОСТИ</h2>
+        <div class="feature-grid">
+            
+            <div class="feature-item">
+                <h3>🛠️ Абсолютная Свобода</h3>
+                <p>
+                    Никаких обязательных квестов и жестких ограничений. Развивайся в своём темпе, сосредоточься на инженерии, магии или исследовании.
+                </p>
+            </div>
+            
+            <div class="feature-item">
+                <h3>⚡ Максимальная Оптимизация</h3>
+                <p>
+                    Идеальный баланс между возможностями и производительностью. Мы позаботились, чтобы вы могли играть комфортно даже на средних ПК (от 8 ГБ ОЗУ).
+                </p>
+            </div>
+            
+            <div class="feature-item">
+                <h3>🏰 Живой Мир</h3>
+                <p>
+                    Сборка включает **Custom NPC+** и множество декоративных модов для оживления мира. Стройте свои города и наполняйте их жизнью!
+                </p>
+            </div>
+            
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>
+            &copy; 2024 The Soly'anka ReDo | Разработано DeathLegend15. Все права защищены.
+        </p>
+    </footer>
+
 </body>
 </html>
