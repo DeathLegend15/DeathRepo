@@ -54,7 +54,7 @@
 
 | Ресурс | Ссылка |
 | :--- | :--- |
-| **Официальный сайт** | [https://sites.google.com/view/thesolyanka/](https://sites.google.com/view/thesolyanka/) |
+| **Официальный сайт** | [[https://deathlegend15.github.io/DeathRepo/](https://deathlegend15.github.io/DeathRepo/)]([https://deathlegend15.github.io/DeathRepo/](https://deathlegend15.github.io/DeathRepo/)) |
 | **Discord** | [https://discord.gg/v6VFMg4Efj](https://discord.gg/v6VFMg4Efj) |
 | **Обсуждение (Ru-minecraft.ru)** | https://ru-minecraft.ru/bezdna/80395-the-solyanka-redo-1710-deathlegend15.html |
 
