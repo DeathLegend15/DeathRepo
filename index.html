@@ -7,86 +7,168 @@
     <style>
         /* Глобальные Стили */
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #0c0d10;
+            /* ИЗМЕНЕНИЕ: Основной фон страницы теперь темнее, чтобы светлые окна выделялись */
+            background-color: #0d1117; 
             color: #e5e5e5;
             line-height: 1.6;
             overflow-x: hidden;
+            scroll-behavior: smooth;
         }
 
-        /* Герой-Секция и Фон */
+        /* 1. ФОН С БЕГУЩИМИ СТРОКАМИ (MARQUEE) */
+        .marquee-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+            opacity: 0.05; /* Очень низкая прозрачность */
+            pointer-events: none;
+        }
+
+        .marquee-line {
+            position: absolute;
+            white-space: nowrap;
+            font-size: 3em;
+            font-weight: 900;
+            color: #FFD700;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            animation: marquee 60s linear infinite; /* Медленная анимация */
+        }
+
+        /* Создаем несколько бегущих строк на разных высотах и скоростях */
+        .marquee-line:nth-child(1) { top: 5%; animation-duration: 50s; }
+        .marquee-line:nth-child(2) { top: 25%; animation-duration: 65s; animation-delay: -32s; color: #c9d1d9; }
+        .marquee-line:nth-child(3) { top: 45%; animation-duration: 55s; }
+        .marquee-line:nth-child(4) { top: 65%; animation-duration: 70s; animation-delay: -35s; color: #c9d1d9; }
+        .marquee-line:nth-child(5) { top: 85%; animation-duration: 60s; }
+        
+        @keyframes marquee {
+            from { transform: translateX(100%); }
+            to { transform: translateX(-100%); }
+        }
+
+        /* 2. ПАНЕЛЬ MAC OS-STYLE (MENU BAR) */
+        .macos-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+            padding: 8px 20px;
+            /* ИЗМЕНЕНИЕ: Светлая панель */
+            background: rgba(255, 255, 255, 0.25); /* Светлее и прозрачнее */
+            backdrop-filter: blur(10px); 
+            border-bottom: 1px solid rgba(255, 255, 255, 0.4); /* Более выраженный контур */
+            display: flex;
+            justify-content: flex-start; 
+            align-items: center;
+            gap: 30px; 
+            font-size: 0.9em;
+            /* ИЗМЕНЕНИЕ: Темный цвет текста в Menu Bar */
+            color: #333; 
+        }
+
+        .bar-left {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            flex-shrink: 1; 
+            min-width: 0;
+        }
+
+        .bar-logo {
+            font-weight: 700;
+            color: #FFD700; /* Логотип остается золотым */
+            letter-spacing: 1px;
+            /* ИЗМЕНЕНИЕ: Тень для контраста на светлом фоне */
+            text-shadow: 0 0 5px rgba(0,0,0,0.3); 
+        }
+        
+        /* 3. ОСНОВНОЙ КОНТЕНТ */
+        .content-wrapper {
+            position: relative;
+            z-index: 1; 
+            padding-top: 50px; 
+        }
+
         .hero-section {
-            height: 100vh;
+            height: calc(100vh - 50px);
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            position: relative;
-            overflow: hidden;
             padding: 20px;
         }
 
-        /* Фоновое Изображение с Блюром */
+        /* Фон Героя (за блюром) */
         .background-image {
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('https://fons.grizly.club/uploads/posts/2025-06/04/17490609916951.jpg') no-repeat center center;
+            /* ИЗМЕНЕНИЕ: Более светлая заглушка, почти белая */
+            background: #e0e6ec; 
             background-size: cover;
-            filter: blur(5px);
+            /* ИЗМЕНЕНИЕ: Максимальное осветление фона */
+            filter: blur(5px) brightness(1.2); 
             transform: scale(1.05);
-            z-index: 1;
+            z-index: -1; 
         }
 
-        /* Контент на переднем плане */
+        /* Контент на переднем плане - ИЗМЕНЕНИЕ: СВЕТЛЫЕ СТЕКЛЯННЫЕ БЛОКИ */
         .hero-content {
-            position: relative;
-            z-index: 2;
-            padding: 30px;
-            /* Эффект Glassmorphism */
-            background: rgba(0, 0, 0, 0.4); 
-            backdrop-filter: blur(8px);
-            border-radius: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+            padding: 40px;
+            /* ИЗМЕНЕНИЕ: Белая основа для "стекла" */
+            background: rgba(255, 255, 255, 0.7); /* Больше белой прозрачности */
+            backdrop-filter: blur(12px); 
+            border-radius: 18px;
+            border: 1px solid rgba(255, 255, 255, 0.8); /* Четкий, почти белый контур */
+            box-shadow: 
+                0 10px 30px rgba(0, 0, 0, 0.2), /* Менее агрессивная тень */
+                inset 0 0 0 1px rgba(255, 255, 255, 0.4); /* Яркий внутренний блик */
             animation: fadeIn 1s ease-out;
             max-width: 900px;
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
+            from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
         .hero-section h1 {
             font-size: 5em;
             margin: 0;
-            color: #FFD700; 
-            text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
-            letter-spacing: 3px;
+            color: #FFD700; /* Золотой заголовок */
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.5); /* Немного более мягкая тень */
+            letter-spacing: 5px;
             text-transform: uppercase;
         }
 
         .hero-section h2 {
-            font-size: 1.8em;
-            color: #c9d1d9;
+            font-size: 2em;
+            /* ИЗМЕНЕНИЕ: Темный цвет текста */
+            color: #333; 
             margin-top: 10px;
             margin-bottom: 30px;
+            font-weight: 300;
         }
         
-        /* Главный слоган */
         .slogan {
-            font-size: 1.5em;
-            color: #ffffff;
-            font-weight: 600;
+            font-size: 1.6em;
+            /* ИЗМЕНЕНИЕ: Темный цвет текста */
+            color: #444; 
+            font-weight: 500;
             margin: 20px 0 30px;
-            text-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
-            border-bottom: 2px solid #FFD700;
+            text-shadow: none; /* Убрали тень для лучшей читаемости */
             padding-bottom: 10px;
         }
 
@@ -94,14 +176,14 @@
         .cta-buttons a {
             display: inline-block;
             margin: 20px 15px 0;
-            padding: 14px 40px;
+            padding: 16px 45px;
             text-decoration: none;
             font-weight: 700;
-            border-radius: 50px;
+            border-radius: 12px;
             transition: all 0.3s ease;
             text-transform: uppercase;
             letter-spacing: 1px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); /* Немного мягче */
         }
 
         .cta-primary {
@@ -111,18 +193,19 @@
         }
         .cta-primary:hover {
             background-color: #fff4af;
-            box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
-            transform: scale(1.05);
+            box-shadow: 0 0 25px rgba(255, 215, 0, 0.7); /* Мягче тень */
+            transform: translateY(-3px);
         }
 
         .cta-secondary {
-            background-color: transparent;
+            /* ИЗМЕНЕНИЕ: Более светлая прозрачная кнопка */
+            background-color: rgba(255, 255, 255, 0.4); 
             color: #FFD700;
             border: 2px solid #FFD700;
         }
         .cta-secondary:hover {
-            background-color: rgba(255, 215, 0, 0.1);
-            transform: scale(1.05);
+            background-color: rgba(255, 215, 0, 0.3); /* Мягче ховер */
+            transform: translateY(-3px);
         }
         
         /* Секция Достоинств */
@@ -132,73 +215,96 @@
         }
 
         .dignity-section h2 {
-            font-size: 3em;
+            font-size: 3.5em;
             color: #FFD700;
             margin-bottom: 50px;
             text-transform: uppercase;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
         }
 
         .dignity-grid {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 40px;
+            gap: 30px;
             max-width: 1200px;
             margin: 0 auto;
         }
 
         .dignity-item {
-            width: 300px;
-            padding: 25px;
-            border-radius: 10px;
-            background: rgba(40, 40, 40, 0.6); 
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-            transition: transform 0.3s ease;
+            width: 320px;
+            padding: 30px;
+            border-radius: 18px;
+            /* ИЗМЕНЕНИЕ: СВЕТЛЫЕ СТЕКЛЯННЫЕ КАРТОЧКИ */
+            background: rgba(255, 255, 255, 0.6); /* Больше белой прозрачности */
+            backdrop-filter: blur(12px); 
+            border: 1px solid rgba(255, 255, 255, 0.7); /* Четкий, почти белый контур */
+            box-shadow: 
+                0 4px 10px rgba(0, 0, 0, 0.2), 
+                inset 0 0 0 1px rgba(255, 255, 255, 0.3); /* Яркий внутренний блик */
+            transition: transform 0.3s ease, border-color 0.3s ease;
             text-align: center; 
         }
         
         .dignity-item:hover {
-            transform: translateY(-8px);
+            transform: translateY(-10px);
             border-color: #FFD700;
         }
 
         .dignity-item .icon {
-            font-size: 3em;
+            font-size: 3.5em;
             color: #FFD700;
             margin-bottom: 15px;
             display: block;
         }
 
         .dignity-item h3 {
-            font-size: 1.5em;
+            font-size: 1.6em;
             color: #FFD700;
             margin-top: 0;
             text-transform: uppercase;
         }
         
         .dignity-item p {
-            color: #c9d1d9;
+            /* ИЗМЕНЕНИЕ: Темный цвет текста */
+            color: #444; 
+            font-size: 1.1em;
         }
 
-        /* Футер */
+        /* Футер - ТЕПЕРЬ СВЕТЛЫЙ СТЕКЛЯННЫЙ */
         .footer {
-            background-color: #1a1e26;
-            padding: 20px;
+            /* Glassmorphism */
+            background: rgba(255, 255, 255, 0.2); /* Светлее и прозрачнее */
+            backdrop-filter: blur(10px); 
+            border-top: 1px solid rgba(255, 255, 255, 0.4); /* Четкий контур */
+            padding: 30px 20px;
             text-align: center;
             font-size: 0.9em;
-            color: #8b949e;
-            border-top: 3px solid #FFD700;
+            /* ИЗМЕНЕНИЕ: Темный цвет текста */
+            color: #333; 
+        }
+        .footer a {
+            /* ИЗМЕНЕНИЕ: Темный цвет ссылки в футере */
+            color: #007bff; 
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
         }
         
         /* Медиа-запросы для адаптивности */
-        @media (max-width: 768px) {
+        @media (max-width: 900px) {
             .hero-section h1 {
-                font-size: 3em;
+                font-size: 3.5em;
+            }
+            .hero-section h2 {
+                font-size: 1.5em;
             }
             .slogan {
-                font-size: 1.2em;
+                font-size: 1.3em;
+            }
+            .dignity-section h2 {
+                font-size: 2.5em;
             }
             .dignity-grid {
                 flex-direction: column;
@@ -207,69 +313,100 @@
             .dignity-item {
                 width: 90%;
             }
+            .macos-bar {
+                font-size: 0.8em;
+                padding: 6px 15px;
+            }
         }
-
     </style>
 </head>
 <body>
+    
+    
 
-    <section class="hero-section">
-        <div class="background-image"></div>
-        <div class="hero-content">
-            <h1>THE SOLY'ANKA RE<span style="color:#c9d1d9;">DO</span></h1>
-            <h2>Ultimate Mods | Версия 1.7.10 | DeathLegend15</h2>
-            
-            <h3 class="slogan">
-                Ваше приключение без границ. The Soly'anka ReDo — это сборка, в которой можно ВСЁ! Здесь нет жестких рамок. Ты сам решаешь: создай гигантскую индустрию, уютное королевство или устрой апокалипсис.
-            </h3>
-            
-            <div class="cta-buttons">
-                <a href="https://github.com/DeathLegend15/DeathRepo/blob/main/download.txt" class="cta-primary">
-                    🚀 НАЧАТЬ ПРИКЛЮЧЕНИЕ
-                </a>
-                <a href="https://discord.gg/v6VFMg4Efj" class="cta-secondary">
-                    💬 ЧАТ В DISCORD
-                </a>
-            </div>
+<div class="macos-bar">
+        <div class="bar-left">
+            <span class="bar-logo">🔥 Soly'anka ReDo</span>
+            <a href="index.html" style="color: #333; text-decoration: none;">Главная</a>
+            <a href="download.html" style="color: #333; text-decoration: none;">Скачать</a>
         </div>
-    </section>
+    </div>
+    
+    
 
-    <section class="dignity-section">
-        <h2>НАШИ ГЛАВНЫЕ ДОСТОИНСТВА</h2>
-        <div class="dignity-grid">
-            
-            <div class="dignity-item">
-                <span class="icon">✨</span>
-                <h3>Свобода Выбора</h3>
-                <p>
-                    Никаких принудительных квестов и линейного прохождения. Играйте так, как нравится вам. Стройте, исследуйте, творите хаос.
-                </p>
-            </div>
-            
-            <div class="dignity-item">
-                <span class="icon">⚙️</span>
-                <h3>Производительность</h3>
-                <p>
-                    Максимальная оптимизация для 1.7.10. Мы достигли идеального баланса, чтобы даже с 8 ГБ ОЗУ вы получили стабильный FPS.
-                </p>
-            </div>
-            
-            <div class="dignity-item">
-                <span class="icon">👑</span>
-                <h3>Ultimate Mods</h3>
-                <p>
-                    Сотни тщательно отобранных модов, включая Custom NPC+ и декоративные паки, создающие глубокий, живой и насыщенный мир.
-                </p>
-            </div>
-            
-        </div>
-    </section>
+<div class="marquee-background">
+        <div class="marquee-line">DeathLegend15 &bull; Soly'anka ReDo &bull; The Ultimate Experience &bull; Пасхалка: Muhe-he &bull;</div>
+        <div class="marquee-line">Minecraft 1.7.10 &bull; Ultimate Mods &bull; DeathLegend15 &bull; Welcome to the Zone &bull;</div>
+        <div class="marquee-line">The Soly'anka ReDo &bull; DeathLegend15 &bull; Glassmorphism Style &bull; Tahoe 26 &bull;</div>
+        <div class="marquee-line">Пасхалка: It's all about the D &bull; Minecraft 1.7.10 &bull; The Soly'anka ReDo &bull;</div>
+        <div class="marquee-line">DeathLegend15 &bull; Soly'anka ReDo &bull; Ultimate Mods &bull; The Ultimate Experience &bull;</div>
+    </div>
 
-    <footer class="footer">
-        <p>
-            DeathLegend15 | Репозиторий проекта: <a href="https://github.com/DeathLegend15/DeathRepo" style="color: #FFD700; text-decoration: none;">GitHub</a>
-        </p>
-    </footer>
+    
 
+<div class="background-image"></div> 
+    
+    
+
+<div class="content-wrapper">
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1>THE SOLY'ANKA RE<span style="color:#333;">DO</span></h1>
+                <h2>Ultimate Mods | Версия 1.7.10 | DeathLegend15</h2>
+                
+                <h3 class="slogan">
+                    Ваше приключение без границ. The Soly'anka ReDo — это сборка, в которой можно ВСЁ! Здесь нет жестких рамок. Ты сам решаешь: создай гигантскую индустрию, уютное королевство или устрой апокалипсис.
+                </h3>
+                
+                <div class="cta-buttons">
+                    <!-- ИЗМЕНЕНИЕ: Ссылка теперь ведет на страницу скачивания (download.html) -->
+                    <a href="download.html" class="cta-primary">
+                        🚀 НАЧАТЬ ПРИКЛЮЧЕНИЕ
+                    </a>
+                    <a href="https://discord.gg/v6VFMg4Efj" class="cta-secondary">
+                        💬 ЧАТ В DISCORD
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="dignity-section">
+            <h2>НАШИ ГЛАВНЫЕ ДОСТОИНСТВА</h2>
+            <div class="dignity-grid">
+                
+                <div class="dignity-item">
+                    <span class="icon">✨</span>
+                    <h3>Свобода Выбора</h3>
+                    <p>
+                        Никаких принудительных квестов и линейного прохождения. Играйте так, как нравится вам. Стройте, исследуйте, творите хаос.
+                    </p>
+                </div>
+                
+                <div class="dignity-item">
+                    <span class="icon">⚙️</span>
+                    <h3>Производительность</h3>
+                    <p>
+                        Максимальная оптимизация для 1.7.10. Мы достигли идеального баланса, чтобы даже с 8 ГБ ОЗУ вы получили стабильный FPS.
+                    </p>
+                </div>
+                
+                <div class="dignity-item">
+                    <span class="icon">👑</span>
+                    <h3>Ultimate Mods</h3>
+                    <p>
+                        Сотни тщательно отобранных модов, включая Custom NPC+ и декоративные паки, создающие глубокий, живой и насыщенный мир.
+                    </p>
+                </div>
+                
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>
+                DeathLegend15 | Репозиторий проекта: <a href="https://github.com/DeathLegend15/DeathRepo" style="color: #FFD700; text-decoration: none;">GitHub</a>
+            </p>
+        </footer>
+    </div>
+    
 </body>
 </html>
