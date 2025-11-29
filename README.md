@@ -42,7 +42,7 @@
 
 ### Инструкция:
 
-1.  Скачайте **полный архив сборки** с нашего [ОФИЦИАЛЬНОГО САЙТА](https://sites.google.com/view/thesolyanka/) или [DISCORD-КАНАЛА](https://discord.gg/v6VFMg4Efj).
+1.  Скачайте **полный архив сборки** с нашего [ОФИЦИАЛЬНОГО САЙТА](https://deathlegend15.github.io/DeathRepo/)) или [DISCORD-КАНАЛА](https://discord.gg/v6VFMg4Efj).
 2.  **Распакуйте** содержимое архива в удобную для вас папку (например, `C:\Games\Solyanka`).
 3.  Внутри этой папки вы найдете уже настроенный лаунчер. **Запустите его**.
 4.  Сборка **The Solyanka ReDo** уже будет готова к запуску. В настройках лаунчера убедитесь, что выделено **8-16 ГБ** оперативной памяти.
@@ -54,7 +54,7 @@
 
 | Ресурс | Ссылка |
 | :--- | :--- |
-| **Официальный сайт** | [[https://deathlegend15.github.io/DeathRepo/](https://deathlegend15.github.io/DeathRepo/)]([https://deathlegend15.github.io/DeathRepo/](https://deathlegend15.github.io/DeathRepo/)) |
+| **Официальный сайт** | ([https://deathlegend15.github.io/DeathRepo/](https://deathlegend15.github.io/DeathRepo/)) |
 | **Discord** | [https://discord.gg/v6VFMg4Efj](https://discord.gg/v6VFMg4Efj) |
 | **Обсуждение (Ru-minecraft.ru)** | https://ru-minecraft.ru/bezdna/80395-the-solyanka-redo-1710-deathlegend15.html |
 
