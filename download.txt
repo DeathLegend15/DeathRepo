@@ -1,10 +1,9 @@
 The Soly'anka ReDo Download
 
-
 The Soly'anka ReDo (DeathLegend15)
 
-Version 1562.13b (рекомендуется)
-https://drive.google.com/file/d/1HVzlOe1_M1ZzwBzKqj5YFsazi7SFfwLS/view?usp=sharing
+Version 1562.14b (рекомендуется)
+https://mega.nz/file/6Q1hCZIQ#uI5Ax9bUU96aOXozWAFZq5n8pmjQNVTNYck5OzDeV2s
 
 First release [1562.1a]:  https://1024terabox.com/s/1vp4HSdbsOmT2s2ys5T0ciA
 Old [1562.2a]: https://1024terabox.com/s/1ipG0xM7TSSjwX4nmgACMAA
@@ -12,12 +11,13 @@ Old [1562.3a]: https://1024terabox.com/s/1PoHeVa4qDaadWkuJYEf6tg
 Old [1562.4b]: https://1024terabox.com/s/1_CKAqt8f8gWBjdpJwjzOOg
 Old [1562.5b]: https://1024terabox.com/s/1XgArZ9zGJNKvKHnT6nljUw
 Old [1562.6b]: https://1024terabox.com/s/1cDJEF40eLDbiIs3dT5OPEQ
-Old [1562.7b]: https://1024terabox.com/s/1w0vNDDnuM4CCxBID-5493A
-Old [1562.8b]: https://1024terabox.com/s/1H0OzgdsgeZSgGGrPpftO_Q
-Old [1562.9b+90.1light]: https://1024terabox.com/s/1Q0Xko8E5U_AWFKr8Tq1_ow
-Old [1562.10b]: https://1024terabox.com/s/15VKcUSHz3L0GPhaTMCOTgA
-Old [1562.11b]: https://1024terabox.com/s/1_Em_lJcQbwqmGcBEWVeVYA
-Old [1562.12b]: https://1024terabox.com/s/11K1u-gJsJnQUMwW7pAhx0Q
+Old [1562.7b]: 
+Old [1562.8b]: 
+Old [1562.9b+90.1light]: 
+Old [1562.10b]: 
+Old [1562.11b]: 
+Old [1562.12b]: 
+Old [1562.13b]: 
 
 Помните! Если вы хотите обновить сборку то не забудьте удалить пред. сборку предварительно сохранив миры и тд
 ПРЕДУПРЕЖДЕНИЯ: ВСЕ РЕЛИЗЫ BETA НЕСТАБИЛЬНЫ! ИГРАЙТЕ НА СВОЙ СТРАХ И РИСК
